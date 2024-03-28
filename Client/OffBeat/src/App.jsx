@@ -1,13 +1,12 @@
 
 import './App.css'
-
+import Home from './Components/Home'
 function App() {
-
 
   return (
     <>
       
-      <h1>Welcome to OffBeat </h1>
+      <Home/>
       
     </>
   )
