@@ -26,6 +26,7 @@ app.get('/connect', (req,res) => {
     res.send(connectionStatus)
 })
 
+
 app.listen(port, () => {
     startDB();
     console.log(`Server running on PORT: ${port}`)
