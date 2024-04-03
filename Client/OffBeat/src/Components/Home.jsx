@@ -1,5 +1,5 @@
-
 import './Home.css';
+import { Link } from 'react-router-dom';
 
 function Home() {
   
@@ -13,8 +13,8 @@ function Home() {
     <div className="nav-items">
         <h1>OFFBEAT</h1>
         <h2>Home</h2>
-        <h2>Login</h2>
-        <h2>Signup</h2>
+        <Link to="/login"><h2>Login</h2></Link>
+        <Link to="/signup"><h2>Signup</h2></Link>
         <h2>About Us</h2>
         <h2>Contact</h2>
     
