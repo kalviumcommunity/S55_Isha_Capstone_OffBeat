@@ -21,6 +21,7 @@ const stopDB = async () => {
 };
 
 const getStatus = async () => {
+    startDB();
     return JSON.stringify(connectionStatus);
 };
 
