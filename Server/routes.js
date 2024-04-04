@@ -1,22 +1,24 @@
-const express = require("express")
-const router = express.Router()
-const {getStatus} =require('./db')
-const {userModel} = require('./Schema')
+const express = require('express');
+const app = express.Router();
+const { getStatus } = require('./db');
+const { userModel } = require('./Schema');
+require('dotenv').config()
 
-router.use(express.json())
+app.get('/connect', async (req, res) => {
+    const connectionStatus = await getStatus();
+    res.send(connectionStatus);
+});
 
-router.get('/connect', async (req, res) => {
-    const connectionStatus = await getStatus()
-    res.send(connectionStatus)
- })
 
-router.get('/data',async(req,res)=>{
-    try{
-        const test = await userModel.find()
-        res.json(test)
-    }catch(err){
-        console.log(err)
+app.get('/data', async (req, res) => {
+    try {
+        const locate = await userModel.find();
+        res.json(locate);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
     }
-})
+});
 
-module.exports = router;
+
+module.exports = app;

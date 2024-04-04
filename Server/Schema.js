@@ -7,5 +7,5 @@ const userSchema = mongoose.Schema({
     rating: Number,
    
 });
-const userModel = mongoose.model("Offbeat-collections", userSchema);
+const userModel = mongoose.model("offbeat-collections", userSchema);
 module.exports = {userModel};
