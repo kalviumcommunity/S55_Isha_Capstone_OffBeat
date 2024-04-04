@@ -20,5 +20,16 @@ app.get('/data', async (req, res) => {
     }
 });
 
+app.post('/add',async(req,res)=>{
+    try{
+        const add = await userModel.create(req.body)
+        res.send(add)
+    }catch(error){
+
+        console.log(error)
+        res.status(500).send('Internal Server Error')
+    }
+})
+
 
 module.exports = app;

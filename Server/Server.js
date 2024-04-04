@@ -1,8 +1,11 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+require('dotenv').config();
+const port = process.env.PORT;
+
 const route = require('./routes')
 const{startDB} = require('./db')
+
 
 var cors = require('cors')
 
@@ -14,5 +17,7 @@ app.use('/', route)
     startDB()
     console.log(`🚀 server running on PORT: ${port}`);
   });
+
+
 
 module.exports = app;
