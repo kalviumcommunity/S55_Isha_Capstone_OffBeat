@@ -1,4 +1,4 @@
-body{
+.bg{
     background-image: url('./homeeee.jpg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -9,12 +9,18 @@ nav {
     height:100px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
-
-.nav-items {
+.items {
     display: flex;
     justify-content: space-around;
+    margin-left: 790px;
+    gap: 40px;
+}
+.nav-items {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -24,6 +30,8 @@ nav {
     align-items: center;
     flex-direction: column;
     background-color: rgba(255, 255, 255, 0.5);
+    margin-right: 400px;
+    margin-left: 400px;
     padding-bottom: 20px;
 }
 
@@ -44,3 +52,59 @@ nav {
 
 }
 
+.bg {
+    background-color: #f0f0f0;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .nav {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+  }
+  
+  .nav-items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    margin-right: 20px; 
+  }
+  
+  .nav-items h1,
+  .nav-items h2 {
+    margin: 0;
+    cursor: pointer;
+  }
+  
+  .box-text {
+    margin-top: 150px;
+    /* flex: 1; */
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 20px;
+  }
+  
+  .morning-text {
+    padding: 20px;
+  }
+  
+  .detect {
+    /* flex: 1; */
+    background-color: #ddd;
+    padding: 20px;
+  }
+  
+  .detect h1 {
+    margin: 0;
+  }
+  
+  .mor {
+    font-size: 40px;
+  }
