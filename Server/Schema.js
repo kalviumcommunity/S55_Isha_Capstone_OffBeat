@@ -5,6 +5,8 @@ const userSchema = mongoose.Schema({
     name: String,
     child_safe: Boolean,
     rating: Number,
+    description: String,
+    open_hours: String
    
 });
 const userModel = mongoose.model("offbeat-collections", userSchema);
