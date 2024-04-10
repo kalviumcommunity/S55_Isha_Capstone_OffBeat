@@ -1,7 +1,8 @@
-import './Contact.css'
-import address from '../assets/address.png'
-import cont from '../assets/contact.png'
-import support from '../assets/support.png'
+
+import './Contact.css';
+import address from '../assets/address.png';
+import cont from '../assets/contact.png';
+import support from '../assets/support.png';
 
 function Contact() {
   return (
@@ -35,11 +36,11 @@ function Contact() {
           </div>
           <div className="form-group">
             <label htmlFor="email-input">Enter your email*</label>
-            <input id="email-input" type="text" placeholder="Eg. example@email.com" required />
+            <input id="email-input" type="email" placeholder="Eg. example@email.com" required />
           </div>
           <div className="form-group">
             <label htmlFor="phone-input">Enter phone number*</label>
-            <input id="phone-input" type="text" placeholder="Eg. +1 800 000000" required />
+            <input id="phone-input" type="tel" placeholder="Eg. +91 800 000000" required />
           </div>
           <div className="form-group">
             <label htmlFor="message-textarea">Message</label>

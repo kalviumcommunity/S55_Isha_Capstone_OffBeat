@@ -17,7 +17,7 @@ body {
 }
 
 .contact-form {
-  width: 50rem; 
+  width: 100%;
   display: flex;
   justify-content: space-between;
   background: #fff;
@@ -29,6 +29,11 @@ button:focus {
     outline-offset: 2px;
   }
   
+
+  button:hover {
+    background-color: #f0f0f0; 
+   
+}
 .icon {
   height: 3rem;
   width: 3rem;
