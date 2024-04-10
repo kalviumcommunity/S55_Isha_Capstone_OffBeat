@@ -21,7 +21,7 @@ function Contact() {
           <div>
             <img className="icon" src={support} alt="General Support icon" />
             <h3>General Support</h3>
-            <p>isharode26@gmail.com</p>
+            <p>xyz@gmail.com</p>
           </div>
         </div>
       </div>
