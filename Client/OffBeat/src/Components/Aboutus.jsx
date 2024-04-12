@@ -1,3 +1,7 @@
+import './Aboutus.css'
+import facebook from '../assets/facebook.png'
+import twitter from '../assets/twitter.png'
+import instagram from '../assets/instagram.png'
 
 const Aboutus = () => {
   return (
@@ -10,8 +14,7 @@ const Aboutus = () => {
       <body>
         <header className="header main-grid">
           <div className="header-content">
-            
-            
+                        
           </div>
           <nav></nav>
         </header>
@@ -20,7 +23,7 @@ const Aboutus = () => {
             <h1 className="page-title">Discover Amazing Destinations</h1>
             <p className="subtitle">Explore breathtaking places and create unforgettable memories.</p>
           </div>
-          <img className="main-image" src="https://images.unsplash.com/photo-1523908511403-7fc7b25592f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60" alt="" />
+          <img className="main-image" src="https://www.treebo.com/blog/wp-content/uploads/2017/12/Candolim-beach-at-Sunset.jpg" alt="beach image" />
           <div className="main-text">
             <h2 className="section-title">Embark on Your Journey</h2>
             <p>Whether you seek the tranquility of remote beaches, the adventure of hiking through majestic mountains, or the culture of bustling cities, OffBeat has the perfect destination for you.</p>
@@ -36,9 +39,9 @@ const Aboutus = () => {
             <p className="copyright">OffBeat</p>
           </div>
           <div className="social">
-            <a href="#" className="facebook icon"><i className="fab fa-facebook-f"></i></a>
-            <a href="#" className="twitter icon"><i className="fab fa-twitter"></i></a>
-            <a href="#" className="instagram icon"><i className="fab fa-instagram"></i></a>
+          <img className="icon" src={facebook} alt="Facebook" />
+          <img className="icon" src={twitter} alt="Twitter" />
+          <img className="icon" src={instagram} alt="Instagram" />
           </div>
         </footer>
       </body>
