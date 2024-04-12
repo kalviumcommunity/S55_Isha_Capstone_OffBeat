@@ -23,7 +23,7 @@ const Aboutus = () => {
             <h1 className="page-title">Discover Amazing Destinations</h1>
             <p className="subtitle">Explore breathtaking places and create unforgettable memories.</p>
           </div>
-          <img className="main-image" src="https://www.treebo.com/blog/wp-content/uploads/2017/12/Candolim-beach-at-Sunset.jpg" alt="" />
+          <img className="main-image" src="https://www.treebo.com/blog/wp-content/uploads/2017/12/Candolim-beach-at-Sunset.jpg" alt="beach image" />
           <div className="main-text">
             <h2 className="section-title">Embark on Your Journey</h2>
             <p>Whether you seek the tranquility of remote beaches, the adventure of hiking through majestic mountains, or the culture of bustling cities, OffBeat has the perfect destination for you.</p>

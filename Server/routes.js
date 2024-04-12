@@ -22,11 +22,14 @@ app.get('/connect', async (req, res) => {
 
 app.get('/data', async (req, res) => {
     try {
+        if (!userModel) {
+            return res.status(500).send('Internal Server Error: userModel is not defined');
+        }
         const locate = await userModel.find();
         res.json(locate);
     } catch (error) {
         console.error(error);
-        res.status(500).send('Internal Server Error');
+        res.status(500).send('Internal Server Error: ' + error.message);
     }
 });
 
@@ -36,16 +39,22 @@ app.post('/insert', async (req, res) => {
         if (error) {
             return res.status(400).json({ error: "Invalid request body" });
         }
+        if (!userModel) {
+            return res.status(500).send('Internal Server Error: userModel is not defined');
+        }
         const insert = await userModel.create(req.body);
         res.json(insert);
     } catch (err) {
         console.error(err);
-        res.status(500).send('Error occoured while inserting data', err);
+        res.status(500).send('Error occurred while inserting data: ' + err);
     }
 });
 
 app.get('/data/:id', async (req, res) => {
     try {
+        if (!userModel) {
+            return res.status(500).send('Internal Server Error: userModel is not defined');
+        }
         const _id = req.params.id;
         const getId = await userModel.findById(_id);
 
@@ -56,14 +65,15 @@ app.get('/data/:id', async (req, res) => {
         res.json(getId);
     } catch (error) {
         console.error(error);
-        res.status(500).send('Internal Server Error');
+        res.status(500).send('Internal Server Error: ' + error.message);
     }
 });
 
-
-
 app.delete('/delete/:id', async (req, res) => {
     try {
+        if (!userModel) {
+            return res.status(500).send('Internal Server Error: userModel is not defined');
+        }
         const entityId = req.params.id;
         const deletedEntity = await userModel.findByIdAndDelete(entityId);
 
@@ -74,10 +84,8 @@ app.delete('/delete/:id', async (req, res) => {
         res.json({ message: 'Entity deleted successfully', deletedEntity });
     } catch (error) {
         console.error(error);
-        res.status(500).send('Internal Server Error');
+        res.status(500).send('Internal Server Error: ' + error.message);
     }
 });
-
-
 
 module.exports = app;
