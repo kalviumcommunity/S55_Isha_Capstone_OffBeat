@@ -88,4 +88,27 @@ app.delete('/delete/:id', async (req, res) => {
     }
 });
 
+app.put('/update/:id', async (req, res) => {
+    try {
+        if (!userModel) {
+            return res.status(500).send('Internal Server Error: userModel is not defined');
+        }
+        const _id = req.params.id;
+        const { error } = schema.validate(req.body);
+        if (error) {
+            return res.status(400).json({ error: "Invalid request body" });
+        }
+        const updatedEntity = await userModel.findByIdAndUpdate(_id, req.body, { new: true });
+
+        if (!updatedEntity) {
+            return res.status(404).json({ error: 'Entity not found' });
+        }
+
+        res.json({ message: 'Entity updated successfully', updatedEntity });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error: ' + error.message);
+    }
+});
+
 module.exports = app;
