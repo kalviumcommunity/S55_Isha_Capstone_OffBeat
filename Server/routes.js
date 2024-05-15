@@ -5,7 +5,6 @@ const { userModel } = require('./Schema');
 const Joi = require('joi');
 require('dotenv').config();
 
-
 const schema = Joi.object({
     name: Joi.string().required(),
     location: Joi.string().required(),
@@ -14,6 +13,14 @@ const schema = Joi.object({
     description: Joi.string().required(),
     open_hours: Joi.string().required()
 });
+
+const validateBody = (req, res, next) => {
+    const { error } = schema.validate(req.body);
+    if (error) {
+        return res.status(422).json({ error: "Unprocessable Entity: Invalid request body", details: error.details });
+    }
+    next();
+};
 
 app.get('/connect', async (req, res) => {
     const connectionStatus = await getStatus();
@@ -33,12 +40,8 @@ app.get('/data', async (req, res) => {
     }
 });
 
-app.post('/insert', async (req, res) => {
+app.post('/insert', validateBody, async (req, res) => {
     try {  
-        const { error } = schema.validate(req.body);
-        if (error) {
-            return res.status(400).json({ error: "Invalid request body" });
-        }
         if (!userModel) {
             return res.status(500).send('Internal Server Error: userModel is not defined');
         }
@@ -69,6 +72,25 @@ app.get('/data/:id', async (req, res) => {
     }
 });
 
+app.put('/update/:id', validateBody, async (req, res) => {
+    try {
+        if (!userModel) {
+            return res.status(500).send('Internal Server Error: userModel is not defined');
+        }
+        const _id = req.params.id;
+        const updatedEntity = await userModel.findByIdAndUpdate(_id, req.body, { new: true });
+
+        if (!updatedEntity) {
+            return res.status(404).json({ error: 'Entity not found' });
+        }
+
+        res.json({ message: 'Entity updated successfully', updatedEntity });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error: ' + error.message);
+    }
+});
+
 app.delete('/delete/:id', async (req, res) => {
     try {
         if (!userModel) {
@@ -82,29 +104,6 @@ app.delete('/delete/:id', async (req, res) => {
         }
 
         res.json({ message: 'Entity deleted successfully', deletedEntity });
-    } catch (error) {
-        console.error(error);
-        res.status(500).send('Internal Server Error: ' + error.message);
-    }
-});
-
-app.put('/update/:id', async (req, res) => {
-    try {
-        if (!userModel) {
-            return res.status(500).send('Internal Server Error: userModel is not defined');
-        }
-        const _id = req.params.id;
-        const { error } = schema.validate(req.body);
-        if (error) {
-            return res.status(400).json({ error: "Invalid request body" });
-        }
-        const updatedEntity = await userModel.findByIdAndUpdate(_id, req.body, { new: true });
-
-        if (!updatedEntity) {
-            return res.status(404).json({ error: 'Entity not found' });
-        }
-
-        res.json({ message: 'Entity updated successfully', updatedEntity });
     } catch (error) {
         console.error(error);
         res.status(500).send('Internal Server Error: ' + error.message);

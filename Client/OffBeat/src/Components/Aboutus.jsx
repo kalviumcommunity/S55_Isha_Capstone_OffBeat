@@ -18,7 +18,7 @@ const Aboutus = () => {
           </div>
           <nav></nav>
         </header>
-        <main className="main-grid">
+        <main className="main-grid">------------------------------------------------------------------------------------------------------------------------------------------------------------------++-------------------------------------------------------------------------------------------------------------
           <div className="head">
             <h1 className="page-title">Discover Amazing Destinations</h1>
             <p className="subtitle">Explore breathtaking places and create unforgettable memories.</p>

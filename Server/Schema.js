@@ -11,3 +11,4 @@ const userSchema = mongoose.Schema({
 });
 const userModel = mongoose.model("offbeat-collections", userSchema);
 module.exports = {userModel};
+
