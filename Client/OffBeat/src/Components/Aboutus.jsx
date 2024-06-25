@@ -42,6 +42,8 @@ const Aboutus = () => {
           <img className="icon" src={facebook} alt="Facebook" />
           <img className="icon" src={twitter} alt="Twitter" />
           <img className="icon" src={instagram} alt="Instagram" />
+          <img className='icon' src={instagram} alt="intamaka" />
+          
           </div>
         </footer>
       </body>

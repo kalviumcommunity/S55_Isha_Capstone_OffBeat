@@ -1,6 +1,7 @@
 
 import './Home.css';
 import { Link } from 'react-router-dom';
+import logo from './logo.png'
 
 function Home() {
   return (
@@ -8,7 +9,7 @@ function Home() {
       {/* Navbar */}
       <nav className="navbar">
         <div className="logo">
-          <img src="logo.png" alt="Logo" />
+          <img src={logo} alt="Logo" />
         </div>
         
         <ul className="nav-links">
@@ -19,8 +20,8 @@ function Home() {
         </ul>
         
         <div className="auth-buttons">
-          <button><Link to="/signup">Sign Up</Link></button>
-          <button><Link to="/login">Login</Link></button>
+          <button className=' signup buttons'><Link className='log-link links' to="/signup">Sign Up</Link></button>
+          <button className='login buttons '><Link className='sign-link links' to="/login">Login</Link></button>
         </div>
       </nav>
 
