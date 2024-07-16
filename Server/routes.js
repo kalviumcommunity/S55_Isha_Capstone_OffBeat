@@ -22,16 +22,27 @@ const validateBody = (req, res, next) => {
     next();
 };
 
+const checkUserModel = (req, res, next) => {
+    if (!userModel) {
+        return res.status(500).send('Internal Server Error: userModel is not defined');
+    }
+    next();
+};
+
+app.use(checkUserModel);
+
 app.get('/connect', async (req, res) => {
-    const connectionStatus = await getStatus();
-    res.send(connectionStatus);
+    try {
+        const connectionStatus = await getStatus();
+        res.json(connectionStatus);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error: ' + error.message);
+    }
 });
 
 app.get('/data', async (req, res) => {
     try {
-        if (!userModel) {
-            return res.status(500).send('Internal Server Error: userModel is not defined');
-        }
         const locate = await userModel.find();
         res.json(locate);
     } catch (error) {
@@ -41,23 +52,17 @@ app.get('/data', async (req, res) => {
 });
 
 app.post('/insert', validateBody, async (req, res) => {
-    try {  
-        if (!userModel) {
-            return res.status(500).send('Internal Server Error: userModel is not defined');
-        }
+    try {
         const insert = await userModel.create(req.body);
         res.json(insert);
-    } catch (err) {
-        console.error(err);
-        res.status(500).send('Error occurred while inserting data: ' + err);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error occurred while inserting data: ' + error.message);
     }
 });
 
 app.get('/data/:id', async (req, res) => {
     try {
-        if (!userModel) {
-            return res.status(500).send('Internal Server Error: userModel is not defined');
-        }
         const _id = req.params.id;
         const getId = await userModel.findById(_id);
 
@@ -74,9 +79,6 @@ app.get('/data/:id', async (req, res) => {
 
 app.put('/update/:id', validateBody, async (req, res) => {
     try {
-        if (!userModel) {
-            return res.status(500).send('Internal Server Error: userModel is not defined');
-        }
         const _id = req.params.id;
         const updatedEntity = await userModel.findByIdAndUpdate(_id, req.body, { new: true });
 
@@ -93,9 +95,6 @@ app.put('/update/:id', validateBody, async (req, res) => {
 
 app.delete('/delete/:id', async (req, res) => {
     try {
-        if (!userModel) {
-            return res.status(500).send('Internal Server Error: userModel is not defined');
-        }
         const entityId = req.params.id;
         const deletedEntity = await userModel.findByIdAndDelete(entityId);
 
