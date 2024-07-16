@@ -7,7 +7,7 @@
 
 /* Apply background image to body */
 body {
-  background: url('BRIGDE.jpg') no-repeat center center fixed;
+  /* background: url('BRIGDE.jpg') no-repeat center center fixed; */
   background-size: cover;
   padding-top: 80px; /* Adjust according to the navbar height */
   font-family: 'Arial', sans-serif;

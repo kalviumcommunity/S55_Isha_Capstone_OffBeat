@@ -100,3 +100,13 @@
     }
   }
 
+
+  .maindiv{
+    background-color: blue;
+    height: 300px;
+    
+  }
+
+  .form{
+    padding: 12%;
+  }

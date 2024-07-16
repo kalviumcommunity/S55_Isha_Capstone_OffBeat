@@ -42,6 +42,8 @@ function App() {
 
   return (
     <div>
+
+      <div className="maindiv">
       <div>
         <nav>
           <div className="logo">SIGNUP Page</div>
@@ -104,6 +106,7 @@ function App() {
             </p>
           </div>
         </form>
+      </div>
       </div>
     </div>
   );
