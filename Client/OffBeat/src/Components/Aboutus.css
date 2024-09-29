@@ -1,140 +1,107 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
 }
-
-body {
-  font-family: "Montserrat", sans-serif;
+body{
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    font-family: 'Poppins', sans-serif;
 }
-
-.header {
-  background-color: #333;
-  color: #fff;
-  padding: 1.25rem;
+.container{
+    width: 90%;
+    height: 100%;
+    max-width: 1170px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    grid-gap: 60px;
+    padding: 35px 0;
 }
-
-.header-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.contentLeft,
+.contentRight{
+    width: 100%;
 }
-
-.social {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  margin-top: 1.5rem;
+.contentLeft .row{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
 }
-
-.icon {
-  height: 2rem;
-  width: 2rem;
+.contentLeft .row .imgWrapper{
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.15);
 }
-
-nav {
-  display: flex;
+.contentLeft .row .imgWrapper img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    user-select: none;
+    transition: 0.3s ease;
 }
-
-nav ul {
-  list-style-type: none;
-  display: flex;
+.contentLeft .row .imgWrapper:hover img{
+    transform: scale(1.5);
 }
-
-nav ul li {
-  margin-right: 1.25rem;
+.contentLeft .row .imgWrapper:nth-child(odd){
+    transform: translateY(-20px);
 }
-
-nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 1.2rem;
-  transition: color 0.3s ease;
+.contentLeft .row .imgWrapper:nth-child(even){
+    transform: translateY(20px);
 }
-
-nav ul li a:hover {
-  color: #ff9900;
-}
-
-.main-grid {
-  max-width: 75rem;
-  margin: 0 auto;
-  padding: 1.25rem;
-}
-
-.head {
-  text-align: center;
-  margin-bottom: 2.5rem;
-}
-
-.page-title {
-  font-size: 2.5rem;
-  margin-bottom: 0.625rem;
-}
-
-.subtitle {
-  font-size: 1.2rem;
-  color: #666;
-}
-
-.main-image {
-  width: 100%;
-  height: auto;
-  margin-bottom: 1.25rem;
-}
-
-.main-text {
-  margin-bottom: 2.5rem;
-}
-
-.section-title {
-  font-size: 1.8rem;
-  margin-bottom: 0.625rem;
-}
-
-.section-title.sub {
-  margin-top: 1.875rem;
-}
-
-.footer {
-  background-color: #333;
-  color: #fff;
-  padding: 1.25rem;
-  margin-top: 2.5rem;
-  text-align: center;
-}
-
-.social a {
-  color: #fff;
-  font-size: 1.5rem;
-  margin: 0 0.625rem;
-}
-
-@media (max-width: 48rem) {
-  .header-content {
+.contentRight .content{
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
-  }
+    gap: 15px;
 }
-
-nav ul li a {
-  font-size: 1.2rem;
+.contentRight .content h4{
+    font-size: 22px;
+    font-weight: 400;
+    color: #0012d3;
 }
-
-.page-title {
-  font-size: 2.5rem;
-  margin-bottom: 0.625rem;
+.contentRight .content h2{
+    font-size: 40px;
+    color: #1e272e;
 }
-
-.subtitle {
-  font-size: 1.2rem;
+.contentRight .content p{
+    font-size: 16px;
+    color: #343434;
+    line-height: 28px;
+    padding-bottom: 10px;
 }
-
-.section-title {
-  font-size: 1.8rem;
-  margin-bottom: 0.625rem;
+.contentRight .content a{
+    display: inline-block;
+    text-decoration: none;
+    font-size: 16px;
+    letter-spacing: 1px;
+    padding: 13px 30px;
+    color: #fff;
+    background: #1200d3;
+    border-radius: 8px;
+    user-select: none;
 }
-
-.section-title.sub {
-  margin-top: 1.875rem;
+@media(max-width: 768px){
+    .container{
+        grid-template-columns: 1fr;
+    }
+    .contentLeft .row{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .contentLeft .row .imgWrapper{
+        height: 150px;
+    }
+    .contentRight .content h4{
+        font-size: 18px;
+    }
+    .contentRight .content h2{
+        font-size: 30px;
+    }
 }

@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { NavLink, useNavigate } from "react-router-dom";
-import axios from 'axios';
-import "./Form.css";
+import "./Login.css";
 
 function App() {
   const [signupError, setSignupError] = useState(false);
@@ -10,40 +9,27 @@ function App() {
 
   const navigate = useNavigate();
   const {
-
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = async (data) => {
-    const { username, password } = data;
-    try {
-      if (password.length < 10) {
-        setSignupError("Password should be more than 10 characters");
-        
-        return;
-      }
+  const onSubmit = (data) => {
+    const { password } = data;
 
-      const response = await axios.post('https://s55-isha-capstone-offbeat.onrender.com/signup', { username, password });
-      if (response.status === 200) {
-        setSignupSuccess(true);
-        sessionStorage.setItem('login', true);
-        sessionStorage.setItem('username', username);
-        navigate("/");
-      } else {
-        setSignupError('Signup failed');
-      }
-    } catch (err) {
-      console.error(err);
-      setSignupError('An error occurred during the signup');
+    if (password.length < 10) {
+      setSignupError("Password should be more than 10 characters");
+      return;
     }
+
+    setSignupSuccess(true);
+    sessionStorage.setItem('login', true);
+    sessionStorage.setItem('username', data.username);
+    navigate("/cards"); // Redirect to home or desired page on successful signup
   };
 
   return (
     <div>
-
-      <div className="maindiv">
       <div>
         <nav>
           <div className="logo">SIGNUP Page</div>
@@ -106,7 +92,6 @@ function App() {
             </p>
           </div>
         </form>
-      </div>
       </div>
     </div>
   );

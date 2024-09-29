@@ -7,8 +7,8 @@ const userSchema = mongoose.Schema({
     rating: Number,
     description: String,
     open_hours: String
-   
 });
+
 const userModel = mongoose.model("offbeat-collections", userSchema);
 module.exports = {userModel};
 
