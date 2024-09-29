@@ -1,74 +1,184 @@
-body {
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+.home-container {
   position: relative;
   margin: 0;
   padding: 0;
-  height: 100vh; /* Ensure the body spans the entire viewport height */
-  overflow: hidden; /* Prevent scrollbars */
+  height: 100vh; 
+  width: 100vw;
+  overflow: hidden; 
 }
 
-body::before {
+.home-container::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('./Background.jpg'); 
-  
   background-size: cover;
   background-position: center;
-  filter: blur(4px); /* Adjust the value to control the blur intensity */
-  opacity: 0.8; /* Maintain the existing opacity */
-  z-index: -1; /* Ensure the background is behind the content */
+  filter: blur(4px);
+  opacity: 0.8; 
+  z-index: -1; 
 }
 
 .home-container {
   text-align: center;
   font-family: "Quicksand";
-  position: relative; /* Ensure the content is above the background */
-  z-index: 1; /* Ensure the content is above the background */
-}
-
-.navbar {
-  color: black;
+  position: relative;
+  z-index: 1; 
 }
 
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  top: 0; 
+  width: 100%; 
+  background-color: white;
+  padding: 10px 20px;
+  z-index: 10;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);
+  width: 100vw;
+  
 }
 
-.logo img {
-  height: 50px;
+.logo {
+  display: flex;
+  margin-left: 20px;
 }
 
-.options,
+.offb1{
+  font-size: 45px;
+  color: rgb(36, 43, 185);
+}
+
+.offb2{
+  font-size: 45px;
+  color: rgb(6, 6, 0);
+}
+
+.nav-items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 100px;
+}
+
+.options {
+  display: flex;
+  gap: 50px; 
+  margin-top: 2px;
+}
+
 .login-signup {
   display: flex;
   gap: 20px;
 }
 
-.options div,
-.login-signup div {
+.login, .signup {
+  color: white;
+  background-color: rgb(36, 43, 185);
+  border-radius: 60px;
+  width: 120px;
+  font-size: 20px;
+  font-family: 'Poppins';
+  padding: 10px 20px; 
+  text-align: center; 
+  text-decoration: none;
+}
+
+.login-link, .signup-link {
+  color: white;
+  text-decoration: none;
+
+}
+
+.links {
+  text-decoration: none;
   color: black;
-  cursor: pointer;
-}
-
-.options div:hover,
-.login-signup div:hover {
-  text-decoration: underline;
-}
-
-button {
-  font-family: "Quicksand";
-  padding: 10px;
-  font-size: 15px;
   font-weight: bold;
-  margin-top: 30px;
-  margin-right: 30px;
+  font-size: 20px;
+  font-family: 'Poppins';
 }
 
-.login {
+.main-container {
+  display: flex;
+}
+
+p {
   color: black;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: row; 
+  justify-content: space-evenly; 
+  align-items: center;
+  height: 100%; 
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  
+  
+}
+
+.text {
+  flex: 1;
+  padding: 20px; 
+  text-align: left;
+}
+
+.back-img {
+  flex: 1; 
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}
+
+.back-image {
+  height: 600px;
+  width: 500px;
+  margin-top: 140px;
+  margin-right: 250px;
+}
+
+.main-text {
+  margin-left: 300px;
+  margin-right: 50px;
+  margin-top: 140px;
+  
+  
+}
+
+.welcome {
+  font-size: 80px;
+  color:rgb(36, 43, 185) ;
+  
+}
+
+.para {
+  font-size: 30px;
+  margin-bottom: 30px;
+  font-weight: bold;
+  
+}
+
+.get-started {
+  color: white;
+  background-color: rgb(36, 43, 185);
+  border-radius: 60px;
+  width: 180px;
+  font-size: 20px;
+  font-family: 'Poppins';
+  padding: 10px 20px;
+  text-align: center; 
+
+}
+
+.get-s{
+  text-decoration: none;
+  color: white;
 }
