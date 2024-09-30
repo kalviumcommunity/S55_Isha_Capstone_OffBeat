@@ -93,7 +93,7 @@ function App() {
               {...register('password', {
                 required: 'Password is Required!',
                 minLength: {
-                  value: 3,
+                  value: 6,
                   message: 'Password should be more than 5 characters',
                 },
               })}
